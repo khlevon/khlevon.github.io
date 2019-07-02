@@ -33,13 +33,26 @@ module.exports = {
         ]
       },
       {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "../assets/fonts/"
+            }
+          }
+        ]
+      },
+
+      {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
         use: [
           {
             loader: "file-loader",
             options: {
               name: "[name].[ext]",
-              outputPath: "assets/images/"
+              outputPath: "../assets/images/"
             }
           }
         ]
@@ -51,6 +64,7 @@ module.exports = {
     alias: {
       "@scss": path.resolve(__dirname, "../src/styles"),
       "@img": path.resolve(__dirname, "../src/assets/images"),
+      "@font": path.resolve(__dirname, "../src/assets/fonts"),
       "@": path.resolve(__dirname, "../src")
     },
     modules: ["node_modules", path.resolve(__dirname, "src")],
