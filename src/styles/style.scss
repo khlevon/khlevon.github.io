@@ -1,46 +1,155 @@
-@import "~materialize-css/sass/materialize";
+@import "helpers/index";
 
+@import "./bootstrap/index";
+
+@import "materialize/index";
+
+@import "fontello/index";
+
+p {
+  font-size: em(16px);
+}
 
 .vertical-text {
   writing-mode: vertical-rl;
   transform: rotateZ(180deg);
 }
 
-.m-0 {
-  margin: 0 !important;
+.align-middle {
+  vertical-align: middle !important;
 }
 
-.mx-0 {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+.vertical-line {
+  width: rem(4px);
+  min-height: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  top: rem(-58px);
+  z-index: 1;
+}
+
+.block-icon {
+  position: relative;
+  margin: 0 auto;
+  width: rem(60px);
+  height: rem(60px);
+  font-size: em(30px);
+  line-height: rem(50px);
+  z-index: 3;
+}
+
+.max-w-none {
+  max-width: none;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.min-h-100 {
+  min-height: 100%;
+}
+
+.w-60 {
+  width: rem(60px);
+  max-width: rem(60px);
+}
+
+.lh-1 {
+  line-height: 1;
+}
+
+.border-0 {
+  border: none !important;
+}
+
+.font-10 {
+  font-size: em(10px);
 }
 
 .font-12 {
-  font-size: 12px;
+  font-size: em(12px);
 }
 
 .font-14 {
-  font-size: 14px;
+  font-size: em(14px);
 }
 
 .font-16 {
-  font-size: 16px;
+  font-size: em(16px);
 }
 
 .font-18 {
-  font-size: 18px;
+  font-size: em(18px);
 }
 
 .font-20 {
-  font-size: 20px;
+  font-size: em(20px);
+}
+.font-24 {
+  font-size: em(24px);
 }
 
 .main-container {
-  min-width: 1000px;
+  //min-width: 1000px;
+
+  & > .row {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    margin-top: -1px;
+  }
 }
 
-@media only print {
+.rating {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  input {
+    display: none;
+
+    &:checked ~ label.full {
+      background: #009688;
+    }
+  }
+
+  label.full {
+    display: inline-block;
+    float: right;
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    border-radius: 50%;
+
+    width: rem(20px);
+    height: rem(20px);
+    background: #455a64;
+
+    margin-right: rem(10px);
+
+    &:first-of-type{
+      margin-right: 0;
+    }
+  }
+}
+
+@media print {
+  @page {
+    size: 350mm; /* landscape */
+    /* you can also specify margins here: */
+    //margin: 25mm;
+    //margin-right: 45mm; /* for compatibility with both A4 and Letter */
+  }
+
   .container {
-    width: 100%;
+    display: block !important;
+    max-width: 1440px !important;
+    width: 1440px !important;
+    margin: 0 !important;
   }
 }
