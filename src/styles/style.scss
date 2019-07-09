@@ -108,6 +108,8 @@ p {
   margin: 0;
   padding: 0;
   border: 0;
+  white-space: nowrap;
+  width: rem(150px);
 
   input {
     display: none;
@@ -123,6 +125,7 @@ p {
     margin: 0;
     padding: 0;
     border: 0;
+    white-space: nowrap;
 
     border-radius: 50%;
 
@@ -132,8 +135,51 @@ p {
 
     margin-right: rem(10px);
 
-    &:first-of-type{
+    &:first-of-type {
       margin-right: 0;
+    }
+  }
+}
+
+.table-skills {
+  tr,
+  td,
+  th {
+    border: 0;
+  }
+
+  th {
+    font-weight: 400;
+  }
+
+  tr {
+    &:first-child {
+      th,
+      td {
+        padding-top: 0;
+      }
+    }
+  }
+
+  td,
+  th {
+    padding-bottom: rem(10px);
+    padding-top: rem(10px);
+  }
+}
+
+.contact-info-box {
+  padding-left: 4.5rem;
+
+  @media all and (max-width: 992px) {
+    &{
+      padding-left: 3rem;
+    }
+  }
+
+  @media all and (max-width: 768px) {
+    &{
+      padding-left: 0;
     }
   }
 }
