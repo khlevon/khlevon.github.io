@@ -1,14 +1,14 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: "./src/scripts/index",
+  entry: './src/scripts/index',
   output: {
-    path: path.resolve(__dirname, "../"),
-    filename: "scripts/[name].[chunkhash].js"
+    path: path.resolve(__dirname, '../'),
+    filename: 'scripts/[name].[chunkhash].js',
   },
 
   module: {
@@ -17,81 +17,77 @@ module.exports = {
         test: [/.js$|.ts$/],
         exclude: /(node_modules)/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env", "@babel/typescript"]
-          }
-        }
+            presets: ['@babel/preset-env', '@babel/typescript'],
+          },
+        },
       },
       {
         test: [/.css$|.scss$/],
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          "sass-loader",
-          "postcss-loader"
-        ]
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', 'postcss-loader'],
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
-              name: "[name].[ext]",
-              outputPath: "../assets/fonts/"
-            }
-          }
-        ]
+              name: '[name].[ext]',
+              outputPath: '../assets/fonts/',
+            },
+          },
+        ],
       },
 
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
-              name: "[name].[ext]",
-              outputPath: "../assets/images/"
-            }
-          }
-        ]
-      }
-    ]
+              name: '[name].[ext]',
+              outputPath: '../assets/images/',
+            },
+          },
+        ],
+      },
+    ],
   },
 
   resolve: {
     alias: {
-      "@scss": path.resolve(__dirname, "../src/styles"),
-      "@img": path.resolve(__dirname, "../src/assets/images"),
-      "@font": path.resolve(__dirname, "../src/assets/fonts"),
-      "@": path.resolve(__dirname, "../src")
+      '@scss': path.resolve(__dirname, '../src/styles'),
+      '@img': path.resolve(__dirname, '../src/assets/images'),
+      '@font': path.resolve(__dirname, '../src/assets/fonts'),
+      '@': path.resolve(__dirname, '../src'),
     },
-    modules: ["node_modules", path.resolve(__dirname, "src")],
-    extensions: [".js", ".ts"]
+    modules: ['node_modules', path.resolve(__dirname, 'src')],
+    extensions: ['.js', '.ts'],
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Webpack 4 Starter",
-      template: "./src/index.html",
+      title: 'Webpack 4 Starter',
+      template: './src/index.html',
       inject: true,
       minify: {
         removeComments: true,
-        collapseWhitespace: true
-      }
+        collapseWhitespace: true,
+      },
     }),
     new MiniCssExtractPlugin({
-      filename: "styles/style.[chunkhash].css"
+      filename: 'styles/style.[chunkhash].css',
     }),
     new CopyWebpackPlugin([
       {
-        from: "./src/assets",
-        to: "assets"
-      }
+        from: './src/assets',
+        to: 'assets',
+      },
     ]),
-    new CleanWebpackPlugin(["index.html", "scripts", "styles", "assets"], {
-      root: path.join(__dirname, "..")
-    })
-  ]
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['index.html', 'scripts', 'styles', 'assets'],
+      root: path.join(__dirname, '..'),
+    }),
+  ],
 };
