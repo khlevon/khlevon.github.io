@@ -172,13 +172,13 @@ p {
   padding-left: 4.5rem;
 
   @media all and (max-width: 992px) {
-    &{
+    & {
       padding-left: 3rem;
     }
   }
 
   @media all and (max-width: 768px) {
-    &{
+    & {
       padding-left: 0;
     }
   }
@@ -197,5 +197,13 @@ p {
     max-width: 1440px !important;
     width: 1440px !important;
     margin: 0 !important;
+  }
+
+  .pdf-first-page-break {
+    padding-top: 210px !important;
+  }
+
+  .pdf-second-page-break {
+    padding-top: 350px !important;
   }
 }
