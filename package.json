@@ -19,7 +19,7 @@
     "url": "https://github.com/khlevon98/khlevon98.github.io/issues"
   },
   "engines": {
-    "node": "18.x"
+    "node": "16.x"
   },
   "browserslist": [
     ">0.2%",
