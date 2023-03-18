@@ -168,6 +168,18 @@ p {
   }
 }
 
+ul.description-as-bullet-list {
+  list-style: disc;
+  padding-left: 15px;
+  li {
+    list-style: disc;
+    p {
+      margin-top: 3px;
+      margin-bottom: 3px;
+    }
+  }
+}
+
 .contact-info-box {
   padding-left: 4.5rem;
 
