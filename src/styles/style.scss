@@ -87,6 +87,7 @@ p {
 .font-20 {
   font-size: em(20px);
 }
+
 .font-24 {
   font-size: em(24px);
 }
@@ -94,7 +95,7 @@ p {
 .main-container {
   //min-width: 1000px;
 
-  & > .row {
+  &>.row {
     &:first-child {
       margin-top: 0;
     }
@@ -114,7 +115,7 @@ p {
   input {
     display: none;
 
-    &:checked ~ label.full {
+    &:checked~label.full {
       background: #009688;
     }
   }
@@ -142,6 +143,7 @@ p {
 }
 
 .table-skills {
+
   tr,
   td,
   th {
@@ -154,6 +156,7 @@ p {
 
   tr {
     &:first-child {
+
       th,
       td {
         padding-top: 0;
@@ -171,8 +174,10 @@ p {
 ul.description-as-bullet-list {
   list-style: disc;
   padding-left: 15px;
+
   li {
     list-style: disc;
+
     p {
       margin-top: 3px;
       margin-bottom: 3px;
@@ -196,13 +201,8 @@ ul.description-as-bullet-list {
   }
 }
 
+
 @media print {
-  @page {
-    size: 350mm; /* landscape */
-    /* you can also specify margins here: */
-    //margin: 25mm;
-    //margin-right: 45mm; /* for compatibility with both A4 and Letter */
-  }
 
   .container {
     display: block !important;
@@ -211,7 +211,12 @@ ul.description-as-bullet-list {
     margin: 0 !important;
   }
 
-  .pdf-page-break-1 {
+  .page-break {
+    page-break-after: always;
+  }
+
+  .page-top-padding {
     padding-top: 20px !important;
   }
+
 }
